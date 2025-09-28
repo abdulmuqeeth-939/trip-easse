@@ -1,0 +1,1013 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TravelEase - Special Deals & Offers</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        :root {
+            --primary: #3498db;
+            --secondary: #2ecc71;
+            --accent: #e74c3c;
+            --dark: #2c3e50;
+            --light: #ecf0f1;
+            --luxury: #d4af37;
+            --premium: #9b59b6;
+            --economy: #27ae60;
+        }
+
+        body {
+            background-color: #f5f7fa;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .logo i {
+            color: var(--secondary);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 25px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .auth-buttons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .btn {
+            padding: 8px 20px;
+            border-radius: 4px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            border: none;
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+        }
+
+        .btn-secondary {
+            background: var(--secondary);
+            color: white;
+        }
+
+        .btn-accent {
+            background: var(--accent);
+            color: white;
+        }
+
+        .btn-luxury {
+            background: var(--luxury);
+            color: white;
+        }
+
+        .btn-premium {
+            background: var(--premium);
+            color: white;
+        }
+
+        .btn-economy {
+            background: var(--economy);
+            color: white;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1469474968028-56623f02e42e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1174&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 500px;
+            display: flex;
+            align-items: center;
+            color: white;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 20px;
+            margin-bottom: 30px;
+        }
+
+        /* Deals Section */
+        .deals {
+            margin: 60px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 32px;
+            color: var(--dark);
+        }
+
+        .section-subtitle {
+            text-align: center;
+            margin-bottom: 40px;
+            color: #666;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .deal-tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 30px;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .deal-tab {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 30px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            background: #f1f1f1;
+        }
+
+        .deal-tab.active {
+            background: var(--primary);
+            color: white;
+        }
+
+        .deals-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .deal-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+            position: relative;
+        }
+
+        .deal-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .deal-badge {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            padding: 5px 15px;
+            border-radius: 20px;
+            color: white;
+            font-weight: 600;
+            font-size: 14px;
+            z-index: 2;
+        }
+
+        .badge-hot {
+            background: var(--accent);
+        }
+
+        .badge-popular {
+            background: var(--secondary);
+        }
+
+        .badge-limited {
+            background: var(--luxury);
+        }
+
+        .deal-image {
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+
+        .deal-discount {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: var(--accent);
+            color: white;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-weight: 700;
+            font-size: 16px;
+        }
+
+        .deal-content {
+            padding: 20px;
+        }
+
+        .deal-title {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 10px;
+        }
+
+        .deal-title h3 {
+            color: var(--dark);
+        }
+
+        .deal-rating {
+            color: #f39c12;
+            font-size: 14px;
+        }
+
+        .deal-location {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            color: #666;
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+
+        .deal-location i {
+            color: var(--accent);
+        }
+
+        .deal-description {
+            color: #666;
+            margin-bottom: 15px;
+            font-size: 14px;
+        }
+
+        .deal-features {
+            display: flex;
+            gap: 15px;
+            margin: 15px 0;
+            flex-wrap: wrap;
+        }
+
+        .feature {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 13px;
+            color: #666;
+        }
+
+        .feature i {
+            color: var(--secondary);
+        }
+
+        .deal-pricing {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin: 15px 0;
+        }
+
+        .original-price {
+            text-decoration: line-through;
+            color: #999;
+            font-size: 16px;
+        }
+
+        .deal-price {
+            font-weight: 700;
+            color: var(--primary);
+            font-size: 22px;
+        }
+
+        .deal-savings {
+            color: var(--accent);
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        .deal-validity {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            margin-top: 10px;
+            font-size: 13px;
+            color: #666;
+        }
+
+        .deal-validity i {
+            color: var(--accent);
+        }
+
+        .deal-actions {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+
+        /* Newsletter Section */
+        .newsletter {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            padding: 60px 0;
+            color: white;
+            text-align: center;
+            margin: 60px 0;
+        }
+
+        .newsletter-content {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .newsletter h2 {
+            margin-bottom: 20px;
+            font-size: 32px;
+        }
+
+        .newsletter p {
+            margin-bottom: 30px;
+            font-size: 18px;
+        }
+
+        .newsletter-form {
+            display: flex;
+            gap: 10px;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .newsletter-input {
+            flex: 1;
+            padding: 12px 15px;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+
+        .newsletter-btn {
+            background: var(--dark);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 4px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .newsletter-btn:hover {
+            background: #1a252f;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 60px 0 20px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-column h3 {
+            margin-bottom: 20px;
+            font-size: 20px;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: #bbb;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            transition: background 0.3s;
+        }
+
+        .social-links a:hover {
+            background: var(--primary);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #bbb;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .nav-links {
+                gap: 15px;
+            }
+
+            .hero h1 {
+                font-size: 36px;
+            }
+
+            .deals-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .deal-tabs {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .newsletter-form {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <div class="logo">
+                    <i class="fas fa-globe-americas"></i>
+                    <span>TravelEase</span>
+                </div>
+                <div class="nav-links">
+                    <a href="tirp buddy.html" class="active">Home</a>
+                    <a href="destination.html">Destinations</a>
+                    <a href="home.html">Hotels</a>
+                    <a href="cabs.html">Cabs</a>
+                    <a href="#deals">Deals</a>
+                </div>
+                <div class="auth-buttons">
+                    <button class="btn btn-outline" id="loginBtn">Login</button>
+                    <button class="btn btn-primary" id="signupBtn">Sign Up</button>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Exclusive Travel Deals</h1>
+                <p>Save big on your next adventure with our limited-time offers and special discounts</p>
+                <button class="btn btn-primary" style="padding: 12px 30px; font-size: 18px;">View All Deals</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Deals Section -->
+    <section id="deals" class="container deals">
+        <h2 class="section-title">Special Offers & Discounts</h2>
+        <p class="section-subtitle">Don't miss these amazing deals on hotels, packages, and experiences across India</p>
+        
+        <div class="deal-tabs">
+            <button class="deal-tab active" data-deal-type="all">All Deals</button>
+            <button class="deal-tab" data-deal-type="hotels">Hotels</button>
+            <button class="deal-tab" data-deal-type="packages">Packages</button>
+            <button class="deal-tab" data-deal-type="last-minute">Last Minute</button>
+            <button class="deal-tab" data-deal-type="weekend">Weekend Getaways</button>
+        </div>
+        
+        <div class="deals-grid" id="dealsContainer">
+            <!-- Hotel Deals -->
+            <div class="deal-card" data-deal-type="hotels">
+                <div class="deal-badge badge-hot">HOT DEAL</div>
+                <div class="deal-image" style="background-image: url('https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80');">
+                    <div class="deal-discount">40% OFF</div>
+                </div>
+                <div class="deal-content">
+                    <div class="deal-title">
+                        <h3>Luxury Beach Resort Stay</h3>
+                        <div class="deal-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                            <span>4.5</span>
+                        </div>
+                    </div>
+                    <div class="deal-location">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Goa, India</span>
+                    </div>
+                    <p class="deal-description">Enjoy a luxurious 3-night stay at a 5-star beachfront resort with breakfast included.</p>
+                    <div class="deal-features">
+                        <div class="feature">
+                            <i class="fas fa-wifi"></i>
+                            <span>Free WiFi</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-swimming-pool"></i>
+                            <span>Pool</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-utensils"></i>
+                            <span>Breakfast</span>
+                        </div>
+                    </div>
+                    <div class="deal-pricing">
+                        <span class="original-price">$450</span>
+                        <span class="deal-price">$270</span>
+                        <span class="deal-savings">Save $180</span>
+                    </div>
+                    <div class="deal-validity">
+                        <i class="fas fa-clock"></i>
+                        <span>Valid until: Dec 15, 2023</span>
+                    </div>
+                    <div class="deal-actions">
+                        <button class="btn btn-outline">View Details</button>
+                        <button class="btn btn-primary">Book Now</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="deal-card" data-deal-type="hotels">
+                <div class="deal-badge badge-popular">POPULAR</div>
+                <div class="deal-image" style="background-image: url('https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80');">
+                    <div class="deal-discount">35% OFF</div>
+                </div>
+                <div class="deal-content">
+                    <div class="deal-title">
+                        <h3>Heritage Palace Hotel</h3>
+                        <div class="deal-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <span>4.0</span>
+                        </div>
+                    </div>
+                    <div class="deal-location">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Udaipur, Rajasthan</span>
+                    </div>
+                    <p class="deal-description">Experience royal living in a restored heritage palace with lake views.</p>
+                    <div class="deal-features">
+                        <div class="feature">
+                            <i class="fas fa-landmark"></i>
+                            <span>Heritage</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-water"></i>
+                            <span>Lake View</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-spa"></i>
+                            <span>Spa</span>
+                        </div>
+                    </div>
+                    <div class="deal-pricing">
+                        <span class="original-price">$320</span>
+                        <span class="deal-price">$208</span>
+                        <span class="deal-savings">Save $112</span>
+                    </div>
+                    <div class="deal-validity">
+                        <i class="fas fa-clock"></i>
+                        <span>Valid until: Nov 30, 2023</span>
+                    </div>
+                    <div class="deal-actions">
+                        <button class="btn btn-outline">View Details</button>
+                        <button class="btn btn-primary">Book Now</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Package Deals -->
+            <div class="deal-card" data-deal-type="packages">
+                <div class="deal-badge badge-limited">LIMITED</div>
+                <div class="deal-image" style="background-image: url('https://images.unsplash.com/photo-1552733407-5d5c46c3bb3b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1080&q=80');">
+                    <div class="deal-discount">25% OFF</div>
+                </div>
+                <div class="deal-content">
+                    <div class="deal-title">
+                        <h3>Golden Triangle Tour</h3>
+                        <div class="deal-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <span>4.9</span>
+                        </div>
+                    </div>
+                    <div class="deal-location">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Delhi, Agra, Jaipur</span>
+                    </div>
+                    <p class="deal-description">6-day guided tour covering Delhi, Agra, and Jaipur with accommodation, meals, and transfers.</p>
+                    <div class="deal-features">
+                        <div class="feature">
+                            <i class="fas fa-hotel"></i>
+                            <span>5 Nights Stay</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-utensils"></i>
+                            <span>All Meals</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-car"></i>
+                            <span>Transfers</span>
+                        </div>
+                    </div>
+                    <div class="deal-pricing">
+                        <span class="original-price">$800</span>
+                        <span class="deal-price">$600</span>
+                        <span class="deal-savings">Save $200</span>
+                    </div>
+                    <div class="deal-validity">
+                        <i class="fas fa-clock"></i>
+                        <span>Valid until: Jan 10, 2024</span>
+                    </div>
+                    <div class="deal-actions">
+                        <button class="btn btn-outline">View Details</button>
+                        <button class="btn btn-primary">Book Now</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="deal-card" data-deal-type="packages">
+                <div class="deal-badge badge-hot">FLASH SALE</div>
+                <div class="deal-image" style="background-image: url('https://images.unsplash.com/photo-1595599512947-92c8c9487349?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80');">
+                    <div class="deal-discount">30% OFF</div>
+                </div>
+                <div class="deal-content">
+                    <div class="deal-title">
+                        <h3>Goa Beach Package</h3>
+                        <div class="deal-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                            <span>4.5</span>
+                        </div>
+                    </div>
+                    <div class="deal-location">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Goa, India</span>
+                    </div>
+                    <p class="deal-description">4-day beach vacation with water sports, seafood dinners, and sunset cruises.</p>
+                    <div class="deal-features">
+                        <div class="feature">
+                            <i class="fas fa-umbrella-beach"></i>
+                            <span>Beach Access</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-water"></i>
+                            <span>Water Sports</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-ship"></i>
+                            <span>Sunset Cruise</span>
+                        </div>
+                    </div>
+                    <div class="deal-pricing">
+                        <span class="original-price">$550</span>
+                        <span class="deal-price">$385</span>
+                        <span class="deal-savings">Save $165</span>
+                    </div>
+                    <div class="deal-validity">
+                        <i class="fas fa-clock"></i>
+                        <span>Valid until: Dec 5, 2023</span>
+                    </div>
+                    <div class="deal-actions">
+                        <button class="btn btn-outline">View Details</button>
+                        <button class="btn btn-primary">Book Now</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Last Minute Deals -->
+            <div class="deal-card" data-deal-type="last-minute">
+                <div class="deal-badge badge-limited">LAST MINUTE</div>
+                <div class="deal-image" style="background-image: url('https://images.unsplash.com/photo-1544551763-46a013bb70d5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80');">
+                    <div class="deal-discount">45% OFF</div>
+                </div>
+                <div class="deal-content">
+                    <div class="deal-title">
+                        <h3>Darjeeling Hill Station</h3>
+                        <div class="deal-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <span>4.0</span>
+                        </div>
+                    </div>
+                    <div class="deal-location">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Darjeeling, West Bengal</span>
+                    </div>
+                    <p class="deal-description">3-night stay in a cozy mountain resort with tea garden tours and toy train ride.</p>
+                    <div class="deal-features">
+                        <div class="feature">
+                            <i class="fas fa-mountain"></i>
+                            <span>Mountain View</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-leaf"></i>
+                            <span>Tea Garden Tour</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-train"></i>
+                            <span>Toy Train</span>
+                        </div>
+                    </div>
+                    <div class="deal-pricing">
+                        <span class="original-price">$380</span>
+                        <span class="deal-price">$209</span>
+                        <span class="deal-savings">Save $171</span>
+                    </div>
+                    <div class="deal-validity">
+                        <i class="fas fa-clock"></i>
+                        <span>Valid for next 7 days only</span>
+                    </div>
+                    <div class="deal-actions">
+                        <button class="btn btn-outline">View Details</button>
+                        <button class="btn btn-accent">Grab Deal</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Weekend Getaways -->
+            <div class="deal-card" data-deal-type="weekend">
+                <div class="deal-badge badge-popular">WEEKEND</div>
+                <div class="deal-image" style="background-image: url('https://images.unsplash.com/photo-1596176530529-78163a4f7af2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1074&q=80');">
+                    <div class="deal-discount">20% OFF</div>
+                </div>
+                <div class="deal-content">
+                    <div class="deal-title">
+                        <h3>Kerala Backwaters</h3>
+                        <div class="deal-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <span>4.9</span>
+                        </div>
+                    </div>
+                    <div class="deal-location">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Alleppey, Kerala</span>
+                    </div>
+                    <p class="deal-description">2-night houseboat cruise through serene backwaters with traditional Kerala meals.</p>
+                    <div class="deal-features">
+                        <div class="feature">
+                            <i class="fas fa-ship"></i>
+                            <span>Houseboat</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-utensils"></i>
+                            <span>Kerala Cuisine</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-fish"></i>
+                            <span>Fishing</span>
+                        </div>
+                    </div>
+                    <div class="deal-pricing">
+                        <span class="original-price">$300</span>
+                        <span class="deal-price">$240</span>
+                        <span class="deal-savings">Save $60</span>
+                    </div>
+                    <div class="deal-validity">
+                        <i class="fas fa-clock"></i>
+                        <span>Weekends only</span>
+                    </div>
+                    <div class="deal-actions">
+                        <button class="btn btn-outline">View Details</button>
+                        <button class="btn btn-primary">Book Now</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="newsletter">
+        <div class="container">
+            <div class="newsletter-content">
+                <h2>Get Exclusive Deals</h2>
+                <p>Subscribe to our newsletter and be the first to know about special offers and discounts</p>
+                <form class="newsletter-form">
+                    <input type="email" class="newsletter-input" placeholder="Enter your email address" required>
+                    <button type="submit" class="newsletter-btn">Subscribe</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>TravelEase</h3>
+                    <p>Your one-stop solution for all travel needs. Book hotels, cabs, and experiences with ease.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#destinations">Destinations</a></li>
+                        <li><a href="#hotels">Hotels</a></li>
+                        <li><a href="#cabs">Cabs</a></li>
+                        <li><a href="#deals">Special Offers</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Support</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">FAQs</a></li>
+                        <li><a href="#">Cancellation Policy</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contact Info</h3>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-map-marker-alt"></i> 123 Travel Street, City</li>
+                        <li><i class="fas fa-phone"></i> +1 234 567 8900</li>
+                        <li><i class="fas fa-envelope"></i> info@travelease.com</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 TravelEase. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Deal filtering functionality
+        const dealTabs = document.querySelectorAll('.deal-tab');
+        const dealCards = document.querySelectorAll('.deal-card');
+
+        dealTabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                // Remove active class from all tabs
+                dealTabs.forEach(t => t.classList.remove('active'));
+                // Add active class to clicked tab
+                tab.classList.add('active');
+                
+                const dealType = tab.getAttribute('data-deal-type');
+                
+                // Show/hide deal cards based on selection
+                dealCards.forEach(card => {
+                    if (dealType === 'all' || card.getAttribute('data-deal-type') === dealType) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        // Newsletter form submission
+        const newsletterForm = document.querySelector('.newsletter-form');
+        newsletterForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const email = newsletterForm.querySelector('input[type="email"]').value;
+            alert(`Thank you for subscribing with ${email}! You'll receive our exclusive deals soon.`);
+            newsletterForm.reset();
+        });
+
+        // Login button functionality
+        const loginBtn = document.getElementById('loginBtn');
+        loginBtn.addEventListener('click', () => {
+            alert('Login functionality would be implemented here!');
+        });
+
+        // Signup button functionality
+        const signupBtn = document.getElementById('signupBtn');
+        signupBtn.addEventListener('click', () => {
+            alert('Sign up functionality would be implemented here!');
+        });
+    </script>
+</body>
+</html>
+</body>
+</html>
